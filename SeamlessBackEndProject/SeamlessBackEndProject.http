@@ -1,0 +1,6 @@
+@SeamlessBackEndProject_HostAddress = http://localhost:5015
+
+GET {{SeamlessBackEndProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
