@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Seamless.MainPage"
+             Title="Login/Register">
+
+
+
+
+    <Grid RowDefinitions=" *,Auto" Padding="45">
+
+    <Grid.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#FFD200" Offset="0.1"/>
+            <GradientStop Color="#F7971E" Offset="1.0"/>
+        </LinearGradientBrush>
+    </Grid.Background>
+        
+        
+    <VerticalStackLayout Grid.Row="0" 
+                         Spacing="25" 
+                         VerticalOptions="Start"
+                         Margin="0,90,0,0">
+
+
+
+            <Label Text="Welcome to" 
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   FontSize="34"
+                   HorizontalTextAlignment="Center"/>
+
+            <Image Source="transname.png"
+                       VerticalOptions="Center"
+                       HeightRequest="100"  SemanticProperties.Description="Seamless" />
+
+            <Label Text="Take the guesswork out of getting dressed. Get personalized outfit suggestions based on what you already own."
+                   TextColor="White"
+                   FontSize="18"
+                   HorizontalTextAlignment="Center"
+                   LineHeight="1.3"/>
+        </VerticalStackLayout>
+
+
+        <VerticalStackLayout Grid.Row="1" 
+                             Spacing="12" 
+                             Margin="10,0,0,60">
+
+            <Button Text="Join Now" 
+                    FontSize="16" 
+                    FontAttributes="Bold"
+                    HeightRequest="55" 
+                    TextColor="#F7971E"
+                    BackgroundColor="White"
+                    CornerRadius="28"
+                    Clicked="OnJoinNowClicked"/>
+
+            <Label HorizontalOptions="Center" TextColor="White" FontSize="14">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Already have an account? "/>
+                        <Span Text="Login" 
+                          FontAttributes="Bold"
+                          TextDecorations="Underline"/>
+                    </FormattedString>
+                </Label.FormattedText>
+
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnLoginTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+           
+        </VerticalStackLayout> 
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Seamless.AddOrEditOutfitPage"
+             Title="Create Outfit">
+    <ScrollView>
+        <VerticalStackLayout Spacing="15" Padding="20">
+
+            <Border StrokeShape="RoundRectangle 10" Padding="10">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Outfit Name" FontAttributes="Bold" FontSize="Medium" />
+                    <Entry x:Name="OutfitNameEntry" 
+                           Placeholder="e.g., Summer Weekend" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Label Text="Select items for your outfit:" 
+                   FontSize="Medium" 
+                   FontAttributes="Bold" />
+
+            <CollectionView x:Name="ItemsCollectionView"
+                            HeightRequest="500"
+                            VerticalOptions="FillAndExpand">
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="3" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5">
+
+                            <Frame Padding="5" Margin="0" CornerRadius="5" BorderColor="LightGray" HasShadow="False">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnItemTapped" />
+                                </Frame.GestureRecognizers>
+
+                                <VerticalStackLayout Spacing="7">
+                                    <Image 
+                                        Source="{Binding Item.PhotoUrl}"
+                                        Aspect="AspectFill"
+                                        HeightRequest="100"
+                                        WidthRequest="100"
+                                        BackgroundColor="LightGray" />
+                                    <Label 
+                                        Text="{Binding Item.ItemName}"
+                                        HorizontalOptions="Center"
+                                        FontSize="Small" 
+                                        LineBreakMode="TailTruncation"/>
+                                </VerticalStackLayout>
+                            </Frame>
+
+                            <CheckBox 
+                                IsChecked="{Binding IsSelected}"
+                                HorizontalOptions="End"
+                                VerticalOptions="Start"
+                                Margin="0,5,5,0" 
+                                Color="Orange"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Save Outfit" 
+                    Clicked="OnSaveClicked" 
+                    FontAttributes="Bold"
+                    HorizontalOptions="Fill" 
+                    Margin="0,10,0,50"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

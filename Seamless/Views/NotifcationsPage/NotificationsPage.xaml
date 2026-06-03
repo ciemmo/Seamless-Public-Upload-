@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Seamless.NotificationsPage">
+
+    <ScrollView>
+<VerticalStackLayout Spacing="20" Padding="20">
+
+            <Label 
+                Text="Notifications"
+                FontSize="Title"
+                FontAttributes="Bold"
+                HorizontalOptions="Start"
+                />
+
+            <Button
+                Text="Clear All"
+                HorizontalOptions="End"
+                WidthRequest="120"
+                />
+
+            <BoxView HeightRequest="1" Color="LightGray" />
+
+            <VerticalStackLayout x:Name="NotificationsList" Spacing="15">
+
+                <Frame Padding="10" CornerRadius="5" BorderColor="LightGray">
+                    <Grid ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
+                        <Image 
+                            Source="user_follow_icon.png" 
+                            HeightRequest="25" 
+                            WidthRequest="25" 
+                            VerticalOptions="Center" 
+                            Grid.Column="0" />
+                        <!--Or replace with username-->
+                        <Label 
+                            Text="Kennedy started following you." 
+                            VerticalOptions="Center" 
+                            Grid.Column="1" />
+                        <Label 
+                            Text="1h ago" 
+                            TextColor="Gray" 
+                            VerticalOptions="Center" 
+                            Grid.Column="2" />
+                    </Grid>
+                </Frame>
+
+                <Frame Padding="10" CornerRadius="5" BorderColor="LightGray">
+                    <Grid ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
+                        <Image 
+                            Source="like_icon.png" 
+                            HeightRequest="25" 
+                            WidthRequest="25" 
+                            VerticalOptions="Center" 
+                            Grid.Column="0" />
+                        
+                        <!--Or replace with username-->
+                        <Label 
+                            Text="Emmanuel liked your post: 'My new outfit'" 
+                            VerticalOptions="Center" 
+                            Grid.Column="1" />
+                        <Label 
+                            Text="3h ago" 
+                            TextColor="Gray" 
+                            VerticalOptions="Center" 
+                            Grid.Column="2" />
+                    </Grid>
+                </Frame>
+
+                <Frame Padding="10" CornerRadius="5" BorderColor="LightGray">
+                    <Grid ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
+                        <Image 
+                            Source="new_post_icon.png" 
+                            HeightRequest="25" 
+                            WidthRequest="25" 
+                            VerticalOptions="Center" 
+                            Grid.Column="0" />
+                        
+                        <!--Or replace with username-->
+                        <Label 
+                            Text="Zachary posted a new outfit." 
+                            VerticalOptions="Center" 
+                            Grid.Column="1" />
+                        <Label 
+                            Text="1d ago" 
+                            TextColor="Gray" 
+                            VerticalOptions="Center" 
+                            Grid.Column="2" />
+                    </Grid>
+                </Frame>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

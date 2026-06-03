@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Seamless"
+             x:Class="Seamless.TaggingPage"
+             Title="Tag Item"
+             BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <local:ClosetViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="1. Clothing Image" FontAttributes="Bold" FontSize="18" TextColor="#F7971E"/>
+
+            <Frame HeightRequest="250" BorderColor="Gray" CornerRadius="10" Padding="0" IsClippedToBounds="True">
+                <Image Source="{Binding SelectedImagePath}" Aspect="AspectFill" BackgroundColor="#eee"/>
+            </Frame>
+
+            <Button Text="Pick Image" 
+                    Command="{Binding PickImageCommand}" 
+                    BackgroundColor="#F7971E" 
+                    TextColor="White" 
+                    FontAttributes="Bold"/>
+
+            <Label Text="2. Select Tags" FontAttributes="Bold" FontSize="18" TextColor="#F7971E" Margin="0,10,0,0"/>
+
+            <Label Text="{Binding PendingTagsDisplay}" TextColor="Gray" FontSize="14" LineBreakMode="WordWrap"/>
+
+            <Label Text="Type" FontAttributes="Bold" TextColor="Black" Margin="0,10,0,0"/>
+            <FlexLayout BindableLayout.ItemsSource="{Binding TypeTags}" Wrap="Wrap" JustifyContent="Start">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Border StrokeThickness="0" StrokeShape="RoundRectangle 20" Padding="12,6" Margin="0,0,6,8" BackgroundColor="#F0F0F0">
+                            <HorizontalStackLayout Spacing="8">
+                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" Color="#F7971E" VerticalOptions="Center"/>
+                                <Label Text="{Binding Name}" VerticalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                            </HorizontalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+
+            <Label Text="Color" FontAttributes="Bold" TextColor="Black" Margin="0,10,0,0"/>
+            <FlexLayout BindableLayout.ItemsSource="{Binding ColorTags}" Wrap="Wrap" JustifyContent="Start">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Border StrokeThickness="0" StrokeShape="RoundRectangle 20" Padding="12,6" Margin="0,0,6,8" BackgroundColor="#F0F0F0">
+                            <HorizontalStackLayout Spacing="8">
+                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" Color="#F7971E" VerticalOptions="Center"/>
+                                <Label Text="{Binding Name}" VerticalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                            </HorizontalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+
+            <Label Text="Occasion" FontAttributes="Bold" TextColor="Black" Margin="0,10,0,0"/>
+            <FlexLayout BindableLayout.ItemsSource="{Binding OccasionTags}" Wrap="Wrap" JustifyContent="Start">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Border StrokeThickness="0" StrokeShape="RoundRectangle 20" Padding="12,6" Margin="0,0,6,8" BackgroundColor="#F0F0F0">
+                            <HorizontalStackLayout Spacing="8">
+                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" Color="#F7971E" VerticalOptions="Center"/>
+                                <Label Text="{Binding Name}" VerticalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                            </HorizontalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+
+            <Label Text="Season" FontAttributes="Bold" TextColor="Black" Margin="0,10,0,0"/>
+            <FlexLayout BindableLayout.ItemsSource="{Binding SeasonTags}" Wrap="Wrap" JustifyContent="Start">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Border StrokeThickness="0" StrokeShape="RoundRectangle 20" Padding="12,6" Margin="0,0,6,8" BackgroundColor="#F0F0F0">
+                            <HorizontalStackLayout Spacing="8">
+                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" Color="#F7971E" VerticalOptions="Center"/>
+                                <Label Text="{Binding Name}" VerticalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                            </HorizontalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+
+            <Label Text="Material" FontAttributes="Bold" TextColor="Black" Margin="0,10,0,0"/>
+            <FlexLayout BindableLayout.ItemsSource="{Binding MaterialTags}" Wrap="Wrap" JustifyContent="Start">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Border StrokeThickness="0" StrokeShape="RoundRectangle 20" Padding="12,6" Margin="0,0,6,8" BackgroundColor="#F0F0F0">
+                            <HorizontalStackLayout Spacing="8">
+                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" Color="#F7971E" VerticalOptions="Center"/>
+                                <Label Text="{Binding Name}" VerticalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                            </HorizontalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+
+            <Button Text="Save to Closet" 
+                    Command="{Binding SaveItemCommand}" 
+                    BackgroundColor="Black" 
+                    TextColor="White" 
+                    HeightRequest="50" 
+                    FontAttributes="Bold" 
+                    Margin="0,30,0,50"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

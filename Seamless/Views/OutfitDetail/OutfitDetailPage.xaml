@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Seamless.OutfitDetailPage"
+             Title="Outfit Details">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+
+            <Label x:Name="OutfitNameLabel"
+                   Text="Outfit Name"
+                   FontSize="Title"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <BoxView HeightRequest="1" Color="LightGray" />
+
+            <Label Text="Items in this outfit:" 
+                   FontSize="Medium" 
+                   TextColor="Gray"/>
+
+            <CollectionView x:Name="ItemsCollectionView"
+                            HeightRequest="400">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="5" Margin="5" CornerRadius="10" BorderColor="LightGray">
+                            <VerticalStackLayout Spacing="5">
+                                <Image Source="{Binding PhotoUrl}" 
+                                       Aspect="AspectFill" 
+                                       HeightRequest="120" 
+                                       WidthRequest="120"/>
+                                <Label Text="{Binding ItemName}" 
+                                       HorizontalOptions="Center"
+                                       FontSize="Small"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Delete Outfit" 
+                    BackgroundColor="Red" 
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Clicked="OnDeleteOutfitClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

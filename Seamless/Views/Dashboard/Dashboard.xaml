@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Seamless.Dashboard">
+
+    <Grid RowDefinitions="Auto, Auto, *, Auto" Padding="20" RowSpacing="10">
+
+        <Label Grid.Row="0"
+               Text="Weather Dashboard"
+               FontSize="24"
+               FontAttributes="Bold"
+               TextColor="#F7971E" 
+               HorizontalOptions="Center" />
+
+        <VerticalStackLayout Grid.Row="1" Spacing="15">
+            <Entry x:Name="CityEntry" 
+                   Placeholder="Enter City (e.g. Huntsville)" 
+                   ClearButtonVisibility="WhileEditing"/>
+
+            <Entry x:Name="StateEntry" 
+                   Placeholder="Enter State (e.g. TX)"
+                   MaxLength="2" 
+                   ClearButtonVisibility="WhileEditing"/>
+
+            <Button Text="Get Weather" 
+                    Clicked="OnGetWeatherClicked" 
+                    BackgroundColor="#F7971E" 
+                    TextColor="White"
+                    FontAttributes="Bold"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="2"
+                             VerticalOptions="Center" 
+                             HorizontalOptions="Center"
+                             Spacing="5">
+
+            <Label x:Name="WeatherLocationLabel"
+                   Text="Ready"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Label x:Name="WeatherTempLabel"
+                   Text="Enter location above"
+                   FontSize="40"
+                   TextColor="#F7971E"
+                   HorizontalOptions="Center" />
+
+            <Label x:Name="WeatherConditionLabel"
+                   Text="..."
+                   FontSize="18"
+                   HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="3" ColumnDefinitions="*, *" ColumnSpacing="10">
+            <Button Grid.Column="0" Text="Closet" Clicked="OnViewClosetClicked" />
+            
+        </Grid>
+
+    </Grid>
+</ContentPage>

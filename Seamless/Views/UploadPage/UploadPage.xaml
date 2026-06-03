@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Seamless.UploadPage"
+             Title="Upload Page">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Button x:Name="PickPhotoButton"
+                Text="Pick a Photo"
+                Clicked="OnPickPhotoClicked" />
+
+        <Image x:Name="PreviewImage"
+               HeightRequest="300"
+               Aspect="AspectFit"
+               BackgroundColor="#eee" />
+
+        <Editor x:Name="DescriptionEditor"
+                Placeholder="Add a description..."
+                HeightRequest="100" />
+
+        <Button x:Name="UploadButton" 
+                Text="Upload Post" 
+                Clicked="OnUploadClicked" />
+
+    </VerticalStackLayout>
+</ContentPage> 

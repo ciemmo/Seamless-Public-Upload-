@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Seamless.Models.Enums"
+             x:Class="Seamless.AddOrEditClothingPage"
+             Title="Add/Edit Item">
+    <ScrollView>
+        <VerticalStackLayout Spacing="15" Padding="20">
+             <!-- Item Image -->
+            <Border StrokeShape="RoundRectangle 10" Padding="10">
+                <VerticalStackLayout Spacing="10">
+                    <Image x:Name="ItemImage"
+                           Source="dotnet_bot.png" 
+                           HeightRequest="200"
+                           Aspect="AspectFit"
+                           BackgroundColor="{StaticResource Gray200}"/>
+                    
+                    <Button Text="Upload Photo" 
+                            Clicked="OnUploadPhotoClicked" 
+                            HorizontalOptions="Fill"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Item Name -->
+            <Border StrokeShape="RoundRectangle 10" Padding="10">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Item Name" FontAttributes="Bold" FontSize="Medium" />
+                    <Entry x:Name="ItemNameEntry" 
+                           Placeholder="e.g., Blue Summer T-Shirt" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Clothing Type -->
+            <Border StrokeShape="RoundRectangle 10" Padding="10">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Clothing Type" FontAttributes="Bold" FontSize="Medium" />
+                    <FlexLayout x:Name="ClothingTypeLayout" Wrap="Wrap" 
+                                RadioButtonGroup.GroupName="ClothingType">
+                        <RadioButton Content="T-Shirt" />
+                        <RadioButton Content="Sleeveless" />
+                        <RadioButton Content="Long Sleeve" />
+                        <RadioButton Content="Vest" />
+                        <RadioButton Content="Hoodie" />
+                        <RadioButton Content="Jacket" />
+                        <RadioButton Content="Shorts" />
+                        <RadioButton Content="Skirt" />
+                        <RadioButton Content="Long Pants" />
+                        <RadioButton Content="Tights" />
+                        <RadioButton Content="Shoes" />
+                        <RadioButton Content="Socks" />
+                        <RadioButton Content="Hat" />
+                        <RadioButton Content="Jewelry" />
+                    </FlexLayout>
+                </VerticalStackLayout>
+            </Border>
+            
+            <!-- Weather -->
+            <Border StrokeShape="RoundRectangle 10" Padding="10">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Weather" FontAttributes="Bold" FontSize="Medium" />
+                    <FlexLayout Wrap="Wrap" RadioButtonGroup.GroupName="Weather">
+                        <RadioButton Content="Hot" />
+                        <RadioButton Content="Warm" />
+                        <RadioButton Content="Cool" />
+                        <RadioButton Content="Freezing" />
+                    </FlexLayout>
+                </VerticalStackLayout>
+            </Border>
+            
+            <!-- Occasion -->
+            <Border StrokeShape="RoundRectangle 10" Padding="10">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Occasion" FontAttributes="Bold" FontSize="Medium" />
+                    <FlexLayout Wrap="Wrap" RadioButtonGroup.GroupName="Occasion">
+                        <RadioButton Content="Casual" />
+                        <RadioButton Content="Formal" />
+                        <RadioButton Content="Sporty" />
+                        <RadioButton Content="Work" />
+                        <RadioButton Content="Evening" />
+                    </FlexLayout>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Notes -->
+            <Border StrokeShape="RoundRectangle 10" Padding="10">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Notes" FontAttributes="Bold" FontSize="Medium" />
+                    <Editor x:Name="NotesEditor" 
+                            Placeholder="e.g., pairs well with white sneakers" 
+                            HeightRequest="100" 
+                            AutoSize="Disabled" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Save Button -->
+            <Button Text="Save" 
+                    Clicked="OnSaveClicked" 
+                    FontAttributes="Bold"
+                    HorizontalOptions="Fill" 
+                    Margin="0,10,0,0"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Seamless.ClosetPage">
+
+    <VerticalStackLayout Spacing="15" Padding="20">
+
+        <Label 
+            Text="My Closet"
+            FontSize="Title"
+            FontAttributes="Bold"
+            HorizontalOptions="Start"
+            />
+
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+            <Button 
+                Grid.Column="0"
+                Text="Add Item" 
+                Clicked="OnAddItemClicked" 
+                />
+            <Button 
+                Grid.Column="1"
+                Text="Create Outfit" 
+                Clicked="OnCreateOutfitClicked" 
+                />
+        </Grid>
+
+        <Grid ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10" VerticalOptions="Center">
+            <Button 
+                Grid.Column="0"
+                Text="Filter"
+                Clicked="OnFilterClicked"
+            />
+
+            <Picker 
+                Grid.Column="1"
+                x:Name="SortPicker"
+                Title="Sort by..."
+                SelectedIndexChanged="OnSortChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Recently Added</x:String>
+                        <x:String>Alphabetical</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Button 
+                Grid.Column="2"
+                Text="Trash"
+                Clicked="OnViewTrashClicked"
+            />
+        </Grid>
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+            <Button 
+                Text="My Items" 
+                FontAttributes="Bold"
+                Clicked="OnViewItemsClicked" 
+            />
+            <Button 
+                Text="My Outfits" 
+                Clicked="OnViewOutfitsClicked" 
+                />
+        </HorizontalStackLayout>
+
+        <BoxView HeightRequest="1" Color="LightGray" />
+
+        <CollectionView x:Name="ClosetCollectionView"
+            ItemsSource="{Binding MyCloset}" 
+            SelectionMode="Single"
+            VerticalOptions="FillAndExpand">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="3" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="5" Margin="5" CornerRadius="5" BorderColor="LightGray" HasShadow="False">
+
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Tapped="OnItemTapped" 
+                                CommandParameter="{Binding .}" />
+                        </Frame.GestureRecognizers>
+
+                        <VerticalStackLayout Spacing="7">
+                            <Image 
+                                Source="{Binding PhotoUrl}"
+                                Aspect="AspectFill"
+                                HeightRequest="100"
+                                WidthRequest="100"
+                                BackgroundColor="LightGray" />
+                            <Label 
+                                Text="{Binding ItemName}"
+                                HorizontalOptions="Center"
+                                FontSize="Small" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+    </VerticalStackLayout>
+
+</ContentPage>

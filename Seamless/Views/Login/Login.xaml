@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Seamless.Login"
+             Title="Sign In"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <VerticalStackLayout Spacing="0" Padding="30,15">
+
+            <ImageButton Source="back_icon.png"
+                         Clicked="OnBackClicked"
+                         HeightRequest="25"
+                         WidthRequest="25"
+                         HorizontalOptions="Start"/>
+
+            <Label 
+                Text="Welcome Back To"
+                FontSize="30"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="#F7971E"
+                Margin="0,0,0,40"/>
+
+            <Image Source="transcolorname.png"
+                   HeightRequest="80"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,40"/>
+
+            <Label Text="Email"
+                   FontAttributes="Bold"
+                   TextColor="#333333"
+                   Margin="0,0,0,5"/>
+
+            <Border StrokeThickness="0" 
+                    StrokeShape="RoundRectangle 10" 
+                    BackgroundColor="#F9F9F9" 
+                    Padding="5" 
+                    HeightRequest="55"
+                    Margin="0,0,0,30">
+                <Entry x:Name="EmailEntry" 
+                       Placeholder="Enter your email"
+                       Keyboard="Email" 
+                       BackgroundColor="Transparent"
+                       VerticalOptions="Center"/>
+            </Border>
+
+            <Label Text="Password"
+                   FontAttributes="Bold"
+                   TextColor="#333333"
+                   Margin="0,0,0,5"/>
+
+            <Border StrokeThickness="0"
+                    StrokeShape="RoundRectangle 10" 
+                    BackgroundColor="#F9F9F9" 
+                    Padding="5" 
+                    HeightRequest="55"
+                    Margin="0,0,0,50">
+                <Entry x:Name="PasswordEntry" 
+                       Placeholder="Enter your password"
+                       IsPassword="True" 
+                       BackgroundColor="Transparent"
+                       VerticalOptions="Center"/>
+            </Border>
+
+            <Button 
+                x:Name="SignInButton"
+                Text="Sign In"
+                Clicked="OnSignInClicked"
+                FontSize="18"
+                FontAttributes="Bold"
+                HeightRequest="55"
+                TextColor="White"
+                BackgroundColor="#F7971E" 
+                CornerRadius="28"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
